@@ -1,0 +1,39 @@
+[user]
+	name = Cameron Esfahani
+	email = dirty@apple.com
+[alias]
+	br = branch
+	ci = commit
+	ciu = commit -uno
+	co = checkout
+	df = diff --name-status
+	dt = difftool
+	lf = log -C -M --name-status --abbrev-commit --abbrev=8 --date=relative
+	lol = log  --pretty=oneline --abbrev-commit --graph --decorate
+	lost = !git fsck --unreachable | grep commit | cut -d \" \" -f3 | xargs git log --merges --no-walk --pretty=oneline --abbrev-commit
+	st = status
+	stu = status -uno
+	dhash = !git dt \"$1\"^..\"$1\"
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t=> \\2/' | sort
+[color]
+	ui = auto
+[core]
+	whitespace = -trailing-space,-space-before-tab,-indent-with-non-tab
+	excludesfile = /Users/dirty/.gitignore
+	editor = vim
+[push]
+	default = simple
+[diff]
+	tool = bbdiff
+[difftool]
+	prompt = false
+[difftool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$REMOTE\" \"$LOCAL\"
+[merge]
+	tool = bbdiff
+[mergetool]
+	prompt = false
+[mergetool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+[pull]
+	rebase = true

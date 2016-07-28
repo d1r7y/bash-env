@@ -1,0 +1,26 @@
+.#*
+.com.apple.timemachine.supported
+.fseventsd/
+.Spotlight-V100/
+.svn/
+.TemporaryItems/
+.Trashes/
+.VolumeIcon.icns
+*.aps
+*.cro
+*.depend
+*.DS_Store
+*.mode1
+*.mode1v3
+*.mode2v3
+*.ncb
+*.pbxuser
+*.suo
+*.syms
+*.vcproj.*
+*.xcodeproj\/TemplateIcon.icns
+build.xcodebuild/
+CVS/
+Desktop DB
+Desktop DF
+xcuserdata/
