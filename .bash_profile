@@ -1,5 +1,9 @@
 # Add paths to search path.
 
+# I want /usr/local/bin to be ahead of /usr/bin
+
+export PATH="/usr/local/bin:$PATH"
+
 declare -ra SEARCH_PATHS=("$HOME/bin" "$HOME/work/arcanist/bin")
 for dir in "${SEARCH_PATHS[@]}"; do
     if [ -d "$dir" ]; then
