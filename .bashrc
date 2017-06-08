@@ -4,6 +4,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# Make sure we're starting as interactive.
+
+[[ $- == *i* ]] || return 0
+
 # Start SSH Key Agent
 
 SSH_ENV="$HOME/.ssh/environment"
