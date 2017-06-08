@@ -1,3 +1,9 @@
+# Source system-wide bashrc
+
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
 # Start SSH Key Agent
 
 SSH_ENV="$HOME/.ssh/environment"
