@@ -30,7 +30,7 @@ else
     start_agent;
 fi
 
-comm -3 <(ssh-add -l | sed -n '/no identities/!p' | cut -d' ' -f3) <(find ~/.ssh \( -name "*id_rsa*" -not -name "*.pub" \) -type f) | xargs -o ssh-add -t 7200
+comm -3 <(ssh-add -l | sed -n '/no identities/!p' | cut -d' ' -f3) <(find ~/.ssh \( -name "*id_rsa*" -not -name "*.pub" \) -type f | sort) | xargs bash -c '</dev/tty ssh-add -t 7200 "$@"'
 
 # Add bash extensions.
 
@@ -82,4 +82,13 @@ export EDITOR=vim
 if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
 fi
+
+
+##
+# Your previous /Users/dirty/.bash_profile file was backed up as /Users/dirty/.bash_profile.macports-saved_2017-05-22_at_15:48:37
+##
+
+# MacPorts Installer addition on 2017-05-22_at_15:48:37: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
 
