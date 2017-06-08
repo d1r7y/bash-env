@@ -30,7 +30,7 @@ else
     start_agent;
 fi
 
-comm -3 <(ssh-add -l | sed -n '/no identities/!p' | cut -d' ' -f3) <(find ~/.ssh \( -name "*id_rsa*" -not -name "*.pub" \) -type f | sort) | xargs bash -c '</dev/tty ssh-add -t 7200 "$@"'
+comm -3 <(ssh-add -l | sed -n '/no identities/!p' | cut -d' ' -f3 | sort) <(find ~/.ssh \( -name "*id_rsa*" -not -name "*.pub" \) -type f | sort) | xargs bash -c '</dev/tty ssh-add -t 7200 "$@"'
 
 # Add bash extensions.
 
