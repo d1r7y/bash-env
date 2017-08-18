@@ -1,6 +1,10 @@
 export PATH="$PATH:/usr/local/bin"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
+if [ -d "/opt/local/lib/pkgconfig" ]; then
+    export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
 export EDITOR=vim
 
 declare -ra SEARCH_PATHS=("$HOME/bin" "$HOME/work/arcanist/bin")
