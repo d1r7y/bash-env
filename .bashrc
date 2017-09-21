@@ -14,7 +14,7 @@ SSH_ENV="$HOME/.ssh/environment"
 
 # Make sure $HOME/.ssh exists.
 
-[ -d .ssh ] || ( mkdir -p "$HOME/.ssh" && chmod 0700 "$HOME/.ssh" )
+[ -d "$HOME/.ssh" ] || ( mkdir -p "$HOME/.ssh" && chmod 0700 "$HOME/.ssh" )
 
 function start_agent {
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
