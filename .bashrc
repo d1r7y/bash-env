@@ -22,14 +22,14 @@ function start_agent {
     . "${SSH_ENV}" > /dev/null
 }
 
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
+#if [ -f "${SSH_ENV}" ]; then
+#    . "${SSH_ENV}" > /dev/null
+#    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#        start_agent;
+#    }
+#else
+#    start_agent;
+#fi
 
 function add_ssh_keys {
     comm -3 <(ssh-add -l | sed -n '/no identities/!p' | cut -d' ' -f3 | sort) <(find ~/.ssh \( -name "*id_rsa*" -not -name "*.pub" \) -type f | sort) | xargs bash -c '</dev/tty ssh-add -t 7200 "$@"'
